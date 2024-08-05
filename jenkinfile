@@ -4,8 +4,8 @@ agent any
           stage ('BUILD') {
             steps{ 
               sh ''' 
+               sleep 5
               echo "this is build stage"
-              sleep 5
                   }
                 } 
            stage ('test') {
@@ -13,15 +13,15 @@ agent any
               stage('test in chrome') {
                steps{ 
                  sh '''
+                  sleep 5
                  echo "testing in chrome"
-                 sleep 5
                    }
                   } 
             stage('test in mop'){
               steps{ 
                sh '''
-               echo "testing in mop"
                sleep 5
+               echo "testing in mop"
                }
               } 
             } 
