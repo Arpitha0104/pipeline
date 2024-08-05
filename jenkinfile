@@ -4,22 +4,23 @@ stages{
  stage ('BUILD') 
    { 
 steps{ 
-sh ' 
+sh ''' 
  echo "this is build stage"
+sleep 5
 }
 } 
 stage ('test') {
 parallel{ 
 stage('test in chrome') {
  steps{ 
-sh '
+sh '''
 echo "testing in chrome"
 sleep 5
 }
 } 
 stage('test in mop'){
 steps{ 
-sh '
+sh '''
 echo "testing in mop"
 sleep 5
 } 
