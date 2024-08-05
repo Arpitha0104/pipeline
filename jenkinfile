@@ -1,31 +1,30 @@
 pipeline {
 agent any
-stages{ 
- stage ('BUILD') 
-   { 
-steps{ 
-sh ''' 
- echo "this is build stage"
-sleep 5
-}
-} 
-stage ('test') {
-parallel{ 
-stage('test in chrome') {
- steps{ 
-sh '''
-echo "testing in chrome"
-sleep 5
-}
-} 
-stage('test in mop'){
-steps{ 
-sh '''
-echo "testing in mop"
-sleep 5
-} 
-} 
-} 
-}
-}
-}
+       stages{ 
+          stage ('BUILD') {
+            steps{ 
+              sh ''' 
+              echo "this is build stage"
+              sleep 5
+                  }
+                } 
+           stage ('test') {
+             parallel{ 
+              stage('test in chrome') {
+               steps{ 
+                 sh '''
+                 echo "testing in chrome"
+                 sleep 5
+                   }
+                  } 
+            stage('test in mop'){
+              steps{ 
+               sh '''
+               echo "testing in mop"
+               sleep 5
+               }
+              } 
+            } 
+           }
+          }
+        }
